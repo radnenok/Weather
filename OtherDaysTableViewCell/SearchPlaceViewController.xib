@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchPlaceViewController" customModule="WeatherMainProject" customModuleProvider="target">
+            <connections>
+                <outlet property="searchBar" destination="PEG-qx-Rxn" id="P9o-DE-ID2"/>
+                <outlet property="tableView" destination="gBp-VC-X4G" id="PY7-hO-c25"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Город, индекс или название аэропорта" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAF-hc-Wya">
+                    <rect key="frame" x="0.0" y="10" width="414" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="18" id="EbM-vp-Qjk"/>
+                        <constraint firstAttribute="height" constant="18" id="H03-Yk-ZvQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gBp-VC-X4G">
+                    <rect key="frame" x="0.0" y="86" width="414" height="810"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="PEG-qx-Rxn">
+                    <rect key="frame" x="0.0" y="41" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Vzz-8g-EpQ"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="PEG-qx-Rxn" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0rm-FP-yVI"/>
+                <constraint firstAttribute="trailing" secondItem="kAF-hc-Wya" secondAttribute="trailing" id="15B-n1-RPb"/>
+                <constraint firstItem="kAF-hc-Wya" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3tI-lD-COz"/>
+                <constraint firstItem="PEG-qx-Rxn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="G4k-qW-UMa"/>
+                <constraint firstItem="kAF-hc-Wya" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="IWl-X1-8Jg"/>
+                <constraint firstItem="kAF-hc-Wya" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="JwY-nc-4b5"/>
+                <constraint firstItem="gBp-VC-X4G" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="T0o-3A-3fe"/>
+                <constraint firstItem="PEG-qx-Rxn" firstAttribute="top" secondItem="kAF-hc-Wya" secondAttribute="bottom" constant="13" id="Zcl-xi-CiL"/>
+                <constraint firstAttribute="trailing" secondItem="kAF-hc-Wya" secondAttribute="trailing" id="chk-fg-X4e"/>
+                <constraint firstAttribute="bottom" secondItem="gBp-VC-X4G" secondAttribute="bottom" id="jRa-bl-JqF"/>
+                <constraint firstItem="gBp-VC-X4G" firstAttribute="top" secondItem="PEG-qx-Rxn" secondAttribute="bottom" constant="1" id="n8B-3a-rJu"/>
+                <constraint firstItem="gBp-VC-X4G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="wpf-Ae-mRW"/>
+                <constraint firstItem="kAF-hc-Wya" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="ztf-DO-sLK"/>
+            </constraints>
+            <point key="canvasLocation" x="-52.173913043478265" y="65.625"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
