@@ -8,7 +8,6 @@
 import UIKit
 import GooglePlaces
 
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
