@@ -84,14 +84,14 @@ final class ViewController: UIViewController  {
             guard let self = self, let response = response else {return}
             self.fillDataSource(response: response)
             
-            self.dataFetcherCurrentDay.getWeather(cityName: city) { [weak self] response in
-                guard let self = self, let responseCurrentday = response else {return}
-                self.addDataSource(response: responseCurrentday, attrOneCity: oneCity)
-                
-                if oneCity {
-                    self.weatherCollectionView.reloadData()
-                }
-            }
+//            self.dataFetcherCurrentDay.getWeather(cityName: city) { [weak self] response in
+//                guard let self = self, let responseCurrentday = response else {return}
+//                self.addDataSource(response: responseCurrentday, attrOneCity: oneCity)
+//                
+//                if oneCity {
+//                    self.weatherCollectionView.reloadData()
+//                }
+//            }
         }
     }
     
@@ -116,7 +116,7 @@ final class ViewController: UIViewController  {
         let lat = response.coord?.lat ?? 0
         let lon = response.coord?.lon ?? 0
         
-        dataMainInfo = CurrentDayModel(city: city, minTemp: Int(round(response.main?.temp_min ?? 0)), maxtemp: Int(round(response.main?.temp_max ?? 0)), minTempF: getTempF(tempInC: response.main?.temp_min ?? 0), maxTempF: getTempF(tempInC: response.main?.temp_max ?? 0), currentTemp: Int(round(response.main?.temp ?? 0)), currentTempF: getTempF(tempInC: response.main?.temp ?? 0), description: response.weather?.first?.description ?? "", timeZone: currentTimeZone)
+        dataMainInfo = CurrentDayModel(city: city, country: "", minTemp: Int(round(response.main?.temp_min ?? 0)), maxtemp: Int(round(response.main?.temp_max ?? 0)), minTempF: getTempF(tempInC: response.main?.temp_min ?? 0), maxTempF: getTempF(tempInC: response.main?.temp_max ?? 0), currentTemp: Int(round(response.main?.temp ?? 0)), currentTempF: getTempF(tempInC: response.main?.temp ?? 0), description: response.weather?.first?.description ?? "", timeZone: currentTimeZone)
         
         // other info
         if let sys = response.sys {
@@ -198,7 +198,7 @@ final class ViewController: UIViewController  {
                 
                 
                 
-                daysArray.append(OtherDayModel(date: dayTitleString, minTemp: minTempInt, maxtemp: maxTempInt, minTempF: getTempF(tempInC: minTemp), maxtempF: getTempF(tempInC: maxTemp), icon: "http://openweathermap.org/img/wn/\(icon)@2x.png"))
+                daysArray.append(OtherDayModel(date: dayTitleString, minTemp: minTempInt, maxtemp: maxTempInt, minTempF: getTempF(tempInC: minTemp), maxtempF: getTempF(tempInC: maxTemp), icon: "http://openweathermap.org/img/wn/\(icon)@2x.png", pop: ""))
             }
             
         }

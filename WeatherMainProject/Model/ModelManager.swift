@@ -27,10 +27,12 @@ struct OtherDayModel: OtherDayData {
     var minTempF: Int
     var maxtempF: Int
     var icon: String
+    var pop: String
 }
 
 struct CurrentDayModel {
     let city: String
+    let country: String
     let minTemp: Int
     let maxtemp: Int
     let minTempF: Int

@@ -21,7 +21,8 @@ extension DateFormatter {
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = .current
-        dateFormatter.locale = .current
+    //    dateFormatter.locale = .current
+        dateFormatter.locale = Locale(identifier: "ru_RU")
         dateFormatter.dateFormat = dateFormat.rawValue
         return dateFormatter.string(from: date)
     }

@@ -23,6 +23,19 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdT-fb-cBe">
+                    <rect key="frame" x="0.0" y="822" width="414" height="1"/>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="pqF-mF-0CX">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="constant">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </constraint>
+                    </constraints>
+                </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-Uj-uUk">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="822"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,9 +89,12 @@
                 <constraint firstItem="Lde-39-I9S" firstAttribute="height" secondItem="2qI-a8-4mb" secondAttribute="height" id="OZi-h7-jW8"/>
                 <constraint firstItem="Lde-39-I9S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SAU-wV-lpS"/>
                 <constraint firstItem="Lde-39-I9S" firstAttribute="top" secondItem="2qI-a8-4mb" secondAttribute="top" id="Sme-UP-szm"/>
+                <constraint firstItem="kdT-fb-cBe" firstAttribute="top" secondItem="PPx-Uj-uUk" secondAttribute="bottom" id="aeQ-qU-xzK"/>
                 <constraint firstItem="2qI-a8-4mb" firstAttribute="leading" secondItem="I1Z-Y9-ZgJ" secondAttribute="trailing" id="mVJ-6f-6xx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kdT-fb-cBe" secondAttribute="trailing" id="qS3-1t-Fri"/>
                 <constraint firstAttribute="bottom" secondItem="PPx-Uj-uUk" secondAttribute="bottom" constant="74" id="twV-GD-Lhh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PPx-Uj-uUk" secondAttribute="trailing" id="yLp-Nz-1Eq"/>
+                <constraint firstItem="kdT-fb-cBe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zzf-XG-wPq"/>
             </constraints>
             <point key="canvasLocation" x="-81.159420289855078" y="52.901785714285715"/>
         </view>

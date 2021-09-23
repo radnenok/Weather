@@ -12,4 +12,5 @@ struct OtherDayModelCell: OtherDayData {
     var minTemp: Int
     var maxtemp: Int
     var icon: String
+    var pop: String
 }

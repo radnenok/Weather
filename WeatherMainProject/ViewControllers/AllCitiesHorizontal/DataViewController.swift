@@ -22,8 +22,7 @@ class DataViewController: UIViewController  {
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
     
     private var responseInfoAllDays: WeatherDaysResponse?
-    private var responseInfoCurrentDay: WeatherResponse?
-    
+  
     private var dataSourceAllCities: [CityWeather] = []
     private var tempC: Bool = true  // подтянуть из user defaults
     
@@ -136,18 +135,12 @@ class DataViewController: UIViewController  {
             guard let self = self, let response = response else {return}
             self.responseInfoAllDays = response
             
-            self.dataFetcher.getWeather(cityName: city) { [weak self] response in
-                guard let self = self, let responseCurrentDay = response else {return}
-                
-                self.responseInfoCurrentDay = responseCurrentDay
-                
-                self.fillDataSource()
-                
-                DispatchQueue.main.async {
-                    self.weatherCollectionView.reloadData()
-                }
-                
+            self.fillDataSource()
+            
+            DispatchQueue.main.async {
+                self.weatherCollectionView.reloadData()
             }
+            
         }
     }
     
@@ -159,17 +152,11 @@ class DataViewController: UIViewController  {
             guard let self = self, let response = response else {return}
             self.responseInfoAllDays = response
             
-            self.dataFetcher.getWeatherWithLL(forLatitude: latitude, longitude: longitude) { [weak self] response in
-                guard let self = self, let responseCurrentDay = response else {return}
-                
-                self.responseInfoCurrentDay = responseCurrentDay
-                
-                self.fillDataSource()
-                DispatchQueue.main.async {
-                    self.weatherCollectionView.reloadData()
-                }
-              
+            self.fillDataSource()
+            DispatchQueue.main.async {
+                self.weatherCollectionView.reloadData()
             }
+            
         }
     }
     
@@ -187,91 +174,82 @@ class DataViewController: UIViewController  {
         
         var currentTimeZone: TimeZone = .current
         
-        // main info
-        guard let responseInfoCurrentDay = responseInfoCurrentDay else {return}
-            
-        guard let city = responseInfoCurrentDay.name else {return}
-        
-        if let timeZone = responseInfoCurrentDay.timezone {
-            currentTimeZone = TimeZone(secondsFromGMT: timeZone) ?? .current
-        }
-        
-        let lat = responseInfoCurrentDay.coord?.lat ?? 0
-        let lon = responseInfoCurrentDay.coord?.lon ?? 0
-        
-        dataMainInfo = CurrentDayModel(city: city, minTemp: Int(round(responseInfoCurrentDay.main?.temp_min ?? 0)), maxtemp: Int(round(responseInfoCurrentDay.main?.temp_max ?? 0)), minTempF: getTempF(tempInC: responseInfoCurrentDay.main?.temp_min ?? 0), maxTempF: getTempF(tempInC: responseInfoCurrentDay.main?.temp_max ?? 0), currentTemp: Int(round(responseInfoCurrentDay.main?.temp ?? 0)), currentTempF: getTempF(tempInC: responseInfoCurrentDay.main?.temp ?? 0), description: responseInfoCurrentDay.weather?.first?.description ?? "", timeZone: currentTimeZone)
-        
-        
-        // other info
-        if let sys = responseInfoCurrentDay.sys {
-            
-            var dayTitleString = ""
-            
-            if let epochInt = sys.sunrise {
-                dayTitleString = DateFormatter.configureDataStringFrom(epoch: epochInt, dateFormat: .timeFull)
-                dataOtherInfo.append(OtherInfoModel(title: "ВОСХОД СОЛНЦА", data: dayTitleString))
-            }
-            
-            if let epochInt = sys.sunset {
-                dayTitleString = DateFormatter.configureDataStringFrom(epoch: epochInt, dateFormat: .timeFull)
-                dataOtherInfo.append(OtherInfoModel(title: "ЗАХОД СОЛНЦА", data: dayTitleString))
-            }
-            
-        }
-        
-        if let main = responseInfoCurrentDay.main {
-            if let humidity = main.humidity {
-                dataOtherInfo.append(OtherInfoModel(title: "ВЛАЖНОСТЬ", data: "\(humidity)%"))
-            }
-            
-            if let feels_like = main.feels_like {
-                dataOtherInfo.append(OtherInfoModel(title: "ОЩУЩАЕТСЯ КАК", data: "\(Int(round(feels_like)))°"))
-            }
-            
-            if let pressure = main.pressure {
-                dataOtherInfo.append(OtherInfoModel(title: "ДАВЛЕНИЕ", data: "\(Double(pressure)*0.75) мм рт.ст."))
-            }
-        }
-        
-        if let wind = responseInfoCurrentDay.wind {
-            guard let speed = wind.speed, let deg = wind.deg  else {return}
-            dataOtherInfo.append(OtherInfoModel(title: "ВЕТЕР", data: "\(speed) м/с"))
-        }
-        
-        if let visibility = responseInfoCurrentDay.visibility {
-            dataOtherInfo.append(OtherInfoModel(title: "ВИДИМОСТЬ", data: "\(Double(visibility/100)/10) км"))
-        }
-        
         
         // other days responseInfoAllDays.list
         guard let responseInfoAllDays = responseInfoAllDays else {return}
         guard let days = responseInfoAllDays.list else {return}
         
-        var notFirstPosition = false
-        for day in days {
-            
-            if notFirstPosition {
-                
-                var dayTitleString = ""
-                
-                if let epochInt = day.dt {
-                    
-                    dayTitleString = DateFormatter.configureDataStringFrom(epoch: epochInt, dateFormat: .dayTitle)
-                    
-                    guard let minTemp = day.temp?.min, let maxTemp = day.temp?.max, let icon = day.weather?.first?.icon else {return}
-                    
-                    let minTempInt = Int(round(minTemp))
-                    let maxTempInt = Int(round(maxTemp))
-                    
-                    daysArray.append(OtherDayModel(date: dayTitleString, minTemp: minTempInt, maxtemp: maxTempInt, minTempF: getTempF(tempInC: minTemp), maxtempF: getTempF(tempInC: maxTemp), icon: "http://openweathermap.org/img/wn/\(icon)@2x.png"))
-                }
-                
-            }
-            
-            notFirstPosition = true
+        
+        var day: List
+        var dayTitleString: String
+        
+        day = days[0]
+        
+        // main info
+        guard let city = responseInfoAllDays.city?.name else {return}
+        
+        if let timeZone = responseInfoAllDays.city?.timezone {
+            currentTimeZone = TimeZone(secondsFromGMT: timeZone) ?? .current
         }
         
-        self.dataSourceAllCities.append(CityWeather(lat: lat, lon: lon, placeId: placeId ?? "", mainInfo: dataMainInfo, cityData: [.otherDays(days: daysArray), .otherInfo(info: dataOtherInfo), .maps(name: dataMainInfo.city)]))
+        let lat = responseInfoAllDays.city?.coord?.lat ?? 0
+        let lon = responseInfoAllDays.city?.coord?.lon ?? 0
+        
+        dataMainInfo = CurrentDayModel(city: city, country: responseInfoAllDays.city?.country ?? "", minTemp: Int(round(day.temp?.min ?? 0)), maxtemp: Int(round(day.temp?.max ?? 0)), minTempF: getTempF(tempInC: day.temp?.min ?? 0), maxTempF: getTempF(tempInC: day.temp?.max ?? 0), currentTemp: Int(round(day.temp?.day ?? 0)), currentTempF: getTempF(tempInC: day.temp?.day ?? 0), description: day.weather?.first?.description ?? "", timeZone: currentTimeZone)
+        
+       
+        // other info
+        if let epochInt = day.sunrise {
+            dayTitleString = DateFormatter.configureDataStringFrom(epoch: epochInt, dateFormat: .timeFull)
+            dataOtherInfo.append(OtherInfoModel(title: "ВОСХОД СОЛНЦА", data: dayTitleString))
+        }
+        
+        if let epochInt = day.sunset {
+            dayTitleString = DateFormatter.configureDataStringFrom(epoch: epochInt, dateFormat: .timeFull)
+            dataOtherInfo.append(OtherInfoModel(title: "ЗАХОД СОЛНЦА", data: dayTitleString))
+        }
+        
+    
+        if let humidity = day.humidity {
+            dataOtherInfo.append(OtherInfoModel(title: "ВЛАЖНОСТЬ", data: "\(humidity)%"))
+        }
+        
+        if let feels_like = day.feels_like?.day {
+            dataOtherInfo.append(OtherInfoModel(title: "ОЩУЩАЕТСЯ КАК", data: "\(Int(round(feels_like)))°"))
+        }
+        
+        if let pressure = day.pressure {
+            dataOtherInfo.append(OtherInfoModel(title: "ДАВЛЕНИЕ", data: "\(Double(pressure)*0.75) мм рт.ст."))
+        }
+        
+        guard let speed = day.speed  else {return}
+        dataOtherInfo.append(OtherInfoModel(title: "ВЕТЕР", data: "\(speed) м/с"))
+        
+    
+//        if let visibility = responseInfoCurrentDay.visibility {
+//            dataOtherInfo.append(OtherInfoModel(title: "ВИДИМОСТЬ", data: "\(Double(visibility/100)/10) км"))
+//        }
+//
+        for index in 1..<days.count {
+            day = days[index]
+    
+            if let epochInt = day.dt {
+                
+                dayTitleString = DateFormatter.configureDataStringFrom(epoch: epochInt, dateFormat: .dayTitle)
+                
+                guard let minTemp = day.temp?.min, let maxTemp = day.temp?.max, let icon = day.weather?.first?.icon, let pop = day.pop else {return}
+                
+                let minTempInt = Int(round(minTemp))
+                let maxTempInt = Int(round(maxTemp))
+                let popInt = Int(round(pop*100))
+                let popString = popInt == 0 ? "" : "\(popInt) %"
+                
+                daysArray.append(OtherDayModel(date: dayTitleString, minTemp: minTempInt, maxtemp: maxTempInt, minTempF: getTempF(tempInC: minTemp), maxtempF: getTempF(tempInC: maxTemp), icon: "http://openweathermap.org/img/wn/\(icon)@2x.png", pop: popString))
+            }
+            
+        }
+        
+        self.dataSourceAllCities.append(CityWeather(lat: lat, lon: lon, placeId: placeId ?? "", mainInfo: dataMainInfo, cityData: [.otherDays(days: daysArray), .otherInfo(info: dataOtherInfo), .maps(name: "\(dataMainInfo.city), \(dataMainInfo.country)")]))
         
     }
       

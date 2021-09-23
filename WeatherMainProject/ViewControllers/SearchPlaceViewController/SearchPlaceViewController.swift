@@ -72,9 +72,13 @@ extension SearchPlaceViewController: GMSAutocompleteTableDataSourceDelegate {
     }
     
     func tableDataSource(_ tableDataSource: GMSAutocompleteTableDataSource, didAutocompleteWith place: GMSPlace) {
-        guard let city = place.name else {return}
-        
-        self.cityChoosen(place: city, placeId: place.placeID ?? "")
+  
+        guard let addressComponents = place.addressComponents else {return}
+
+ //       guard let address = place.name else {return}
+        let address = "\(addressComponents[0].shortName ?? place.name ?? ""),\(addressComponents[addressComponents.count-1].shortName ?? "")"
+    
+        self.cityChoosen(place: address, placeId: place.placeID ?? "")
     
     }
     

@@ -53,6 +53,16 @@
                         <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RON-AG-4PV">
+                        <rect key="frame" x="182" y="6" width="40" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="14g-gm-dgs"/>
+                            <constraint firstAttribute="height" constant="21" id="kpH-5e-klw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                        <color key="textColor" red="0.099178444069999996" green="0.51907599969999996" blue="0.96620899439999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
@@ -63,12 +73,14 @@
                     <constraint firstAttribute="bottom" secondItem="jr8-lR-DWc" secondAttribute="bottom" constant="6" id="7VS-hD-YdR"/>
                     <constraint firstAttribute="bottom" secondItem="4ec-Lr-cZO" secondAttribute="bottom" id="GVv-QH-2wL"/>
                     <constraint firstItem="4ec-Lr-cZO" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="HQt-DH-WJ6"/>
+                    <constraint firstItem="RON-AG-4PV" firstAttribute="leading" secondItem="4ec-Lr-cZO" secondAttribute="trailing" constant="5" id="Mhg-5c-B5G"/>
                     <constraint firstAttribute="bottom" secondItem="unS-tf-5nB" secondAttribute="bottom" constant="7" id="PO8-Wx-hXK"/>
                     <constraint firstItem="Jxu-gH-IO6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="SC6-CA-ZKh"/>
                     <constraint firstItem="jr8-lR-DWc" firstAttribute="leading" secondItem="Jxu-gH-IO6" secondAttribute="trailing" constant="5" id="SyK-FI-Jv9"/>
                     <constraint firstItem="4ec-Lr-cZO" firstAttribute="leading" secondItem="unS-tf-5nB" secondAttribute="trailing" constant="5" id="gSs-CC-CPu"/>
                     <constraint firstAttribute="bottom" secondItem="Jxu-gH-IO6" secondAttribute="bottom" constant="7" id="kZw-Tr-spo"/>
                     <constraint firstItem="unS-tf-5nB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="xXc-0B-aUh"/>
+                    <constraint firstItem="RON-AG-4PV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="xmg-hG-tW5"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -78,6 +90,7 @@
                 <outlet property="iconImageView" destination="4ec-Lr-cZO" id="T1A-cH-yci"/>
                 <outlet property="maxTemLabel" destination="Jxu-gH-IO6" id="8X3-Pw-vod"/>
                 <outlet property="minTemLabel" destination="jr8-lR-DWc" id="RUE-WM-tPt"/>
+                <outlet property="popLabel" destination="RON-AG-4PV" id="YGg-DO-shJ"/>
             </connections>
             <point key="canvasLocation" x="-80" y="54"/>
         </tableViewCell>
