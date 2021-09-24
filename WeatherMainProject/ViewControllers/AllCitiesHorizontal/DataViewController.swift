@@ -226,10 +226,6 @@ class DataViewController: UIViewController  {
         dataOtherInfo.append(OtherInfoModel(title: "ВЕТЕР", data: "\(speed) м/с"))
         
     
-//        if let visibility = responseInfoCurrentDay.visibility {
-//            dataOtherInfo.append(OtherInfoModel(title: "ВИДИМОСТЬ", data: "\(Double(visibility/100)/10) км"))
-//        }
-//
         for index in 1..<days.count {
             day = days[index]
     
