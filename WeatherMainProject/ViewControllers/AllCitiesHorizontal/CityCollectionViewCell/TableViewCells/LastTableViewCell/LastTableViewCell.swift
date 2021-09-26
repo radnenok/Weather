@@ -15,7 +15,6 @@ class LastTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,7 +31,8 @@ class LastTableViewCell: UITableViewCell {
             
         nameLabel.attributedText = getStringUnderLined(text1: "Погода - \(name). ", text2: "Открыть в Картах")
        
-        constraintLabelDescription.constant = CGFloat(nameLabel.calculateMaxLines()*21)
+  //      constraintLabelDescription.constant = 21
+       constraintLabelDescription.constant = CGFloat(nameLabel.calculateMaxLines()*21)
     }
     
 }

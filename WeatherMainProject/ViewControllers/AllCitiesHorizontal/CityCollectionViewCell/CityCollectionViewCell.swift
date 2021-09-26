@@ -170,6 +170,18 @@ extension CityCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch dataSource.cityData[indexPath.row] {
+        case .otherDays:
+            return 34*9
+        case .otherInfo:
+            return 348// 6  cells * 58
+
+        case .maps:
+            return 51
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch dataSource.cityData[indexPath.row] {
         case .otherDays:
@@ -178,7 +190,7 @@ extension CityCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
             return 348// 6  cells * 58
     
         case .maps:
-            return UITableView.automaticDimension//51
+            return UITableView.automaticDimension
         }
     }
     
