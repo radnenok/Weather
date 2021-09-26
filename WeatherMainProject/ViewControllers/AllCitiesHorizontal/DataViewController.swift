@@ -115,7 +115,7 @@ class DataViewController: UIViewController  {
         if forAddCity {
             bottomConstraint.constant = 0
         } else {
-            bottomConstraint.constant = 74
+            bottomConstraint.constant = 64
             
             weatherPageControl.hidesForSinglePage = true
             weatherPageControl.setIndicatorImage(UIImage.init(systemName: "location.fill"), forPage: 0)
@@ -195,7 +195,7 @@ class DataViewController: UIViewController  {
         let lat = responseInfoAllDays.city?.coord?.lat ?? 0
         let lon = responseInfoAllDays.city?.coord?.lon ?? 0
         
-        dataMainInfo = CurrentDayModel(city: city, country: responseInfoAllDays.city?.country ?? "", minTemp: Int(round(day.temp?.min ?? 0)), maxtemp: Int(round(day.temp?.max ?? 0)), minTempF: getTempF(tempInC: day.temp?.min ?? 0), maxTempF: getTempF(tempInC: day.temp?.max ?? 0), currentTemp: Int(round(day.temp?.day ?? 0)), currentTempF: getTempF(tempInC: day.temp?.day ?? 0), description: day.weather?.first?.description ?? "", timeZone: currentTimeZone)
+        dataMainInfo = CurrentDayModel(city: city, country: responseInfoAllDays.city?.country ?? "", minTemp: Int(round(day.temp?.min ?? 0)), maxtemp: Int(round(day.temp?.max ?? 0)), minTempF: getTempF(tempInC: day.temp?.min ?? 0), maxTempF: getTempF(tempInC: day.temp?.max ?? 0), currentTemp: Int(round(day.temp?.day ?? 0)), currentTempF: getTempF(tempInC: day.temp?.day ?? 0), description: day.weather?.first?.description ?? "", timeZone: currentTimeZone, feelsLike: Int(round(day.feels_like?.day ?? 0)), feelsLikeF: getTempF(tempInC: Double(round(day.feels_like?.day ?? 0))))
         
        
         // other info
@@ -214,9 +214,9 @@ class DataViewController: UIViewController  {
             dataOtherInfo.append(OtherInfoModel(title: "ВЛАЖНОСТЬ", data: "\(humidity)%"))
         }
         
-        if let feels_like = day.feels_like?.day {
-            dataOtherInfo.append(OtherInfoModel(title: "ОЩУЩАЕТСЯ КАК", data: "\(Int(round(feels_like)))°"))
-        }
+//        if let feels_like = day.feels_like?.day {
+//            dataOtherInfo.append(OtherInfoModel(title: "ОЩУЩАЕТСЯ КАК", data: "\(Int(round(feels_like)))°"))
+//        }
         
         if let pressure = day.pressure {
             dataOtherInfo.append(OtherInfoModel(title: "ДАВЛЕНИЕ", data: "\(Double(pressure)*0.75) мм рт.ст."))

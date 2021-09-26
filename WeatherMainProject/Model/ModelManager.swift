@@ -41,6 +41,8 @@ struct CurrentDayModel {
     let currentTempF: Int
     let description: String
     let timeZone: TimeZone
+    let feelsLike: Int
+    let feelsLikeF: Int
   
 }
 

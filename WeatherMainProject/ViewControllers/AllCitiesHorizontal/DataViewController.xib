@@ -11,7 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DataViewController" customModule="WeatherMainProject" customModuleProvider="target">
             <connections>
                 <outlet property="addCityButton" destination="2qI-a8-4mb" id="IHM-oF-9mz"/>
-                <outlet property="bottomConstraint" destination="twV-GD-Lhh" id="WGm-IH-o3m"/>
+                <outlet property="bottomConstraint" destination="wnR-t4-GjN" id="elO-w2-D0h"/>
                 <outlet property="openWeatherButton" destination="Lde-39-I9S" id="uTK-oG-vRh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherCollectionView" destination="PPx-Uj-uUk" id="ww0-Kq-NIV"/>
@@ -24,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kdT-fb-cBe">
-                    <rect key="frame" x="0.0" y="822" width="414" height="1"/>
+                    <rect key="frame" x="0.0" y="832" width="414" height="1"/>
                     <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="pqF-mF-0CX">
@@ -37,7 +37,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-Uj-uUk">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="822"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="832"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UFV-WB-OEm">
                         <size key="itemSize" width="128" height="128"/>
@@ -47,13 +47,13 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="I1Z-Y9-ZgJ">
-                    <rect key="frame" x="60" y="834.5" width="304" height="27.5"/>
+                    <rect key="frame" x="60" y="844.5" width="304" height="27.5"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="27.5" id="yHP-66-uL5"/>
                     </constraints>
                 </pageControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qI-a8-4mb">
-                    <rect key="frame" x="364" y="832" width="30" height="30"/>
+                    <rect key="frame" x="364" y="842" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="czG-Lv-kdP"/>
                         <constraint firstAttribute="height" constant="30" id="f9p-Ax-baR"/>
@@ -67,7 +67,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lde-39-I9S">
-                    <rect key="frame" x="20" y="832" width="30" height="30"/>
+                    <rect key="frame" x="20" y="842" width="30" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="TheWeatherChannel4"/>
@@ -81,10 +81,10 @@
             <constraints>
                 <constraint firstItem="Lde-39-I9S" firstAttribute="width" secondItem="2qI-a8-4mb" secondAttribute="width" id="3YD-Is-cNG"/>
                 <constraint firstItem="PPx-Uj-uUk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5qA-Mp-t42"/>
-                <constraint firstAttribute="bottom" secondItem="2qI-a8-4mb" secondAttribute="bottom" constant="34" id="BDr-eW-oeG"/>
+                <constraint firstAttribute="bottom" secondItem="2qI-a8-4mb" secondAttribute="bottom" constant="24" id="BDr-eW-oeG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2qI-a8-4mb" secondAttribute="trailing" constant="20" id="EM6-Oi-doL"/>
                 <constraint firstItem="I1Z-Y9-ZgJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="60" id="Jy2-XJ-3PA"/>
-                <constraint firstAttribute="bottom" secondItem="I1Z-Y9-ZgJ" secondAttribute="bottom" constant="34" id="LNL-bn-1X8"/>
+                <constraint firstAttribute="bottom" secondItem="I1Z-Y9-ZgJ" secondAttribute="bottom" constant="24" id="LNL-bn-1X8"/>
                 <constraint firstItem="PPx-Uj-uUk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="MMF-pR-UNi"/>
                 <constraint firstItem="Lde-39-I9S" firstAttribute="height" secondItem="2qI-a8-4mb" secondAttribute="height" id="OZi-h7-jW8"/>
                 <constraint firstItem="Lde-39-I9S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="SAU-wV-lpS"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="kdT-fb-cBe" firstAttribute="top" secondItem="PPx-Uj-uUk" secondAttribute="bottom" id="aeQ-qU-xzK"/>
                 <constraint firstItem="2qI-a8-4mb" firstAttribute="leading" secondItem="I1Z-Y9-ZgJ" secondAttribute="trailing" id="mVJ-6f-6xx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kdT-fb-cBe" secondAttribute="trailing" id="qS3-1t-Fri"/>
-                <constraint firstAttribute="bottom" secondItem="PPx-Uj-uUk" secondAttribute="bottom" constant="74" id="twV-GD-Lhh"/>
+                <constraint firstAttribute="bottom" secondItem="PPx-Uj-uUk" secondAttribute="bottom" constant="64" id="wnR-t4-GjN"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PPx-Uj-uUk" secondAttribute="trailing" id="yLp-Nz-1Eq"/>
                 <constraint firstItem="kdT-fb-cBe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zzf-XG-wPq"/>
             </constraints>

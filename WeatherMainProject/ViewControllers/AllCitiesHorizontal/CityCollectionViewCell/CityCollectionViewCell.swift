@@ -38,7 +38,7 @@ final class CityCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var cityLabelTop: NSLayoutConstraint!
     
     
-    private var dataSource: CityWeather = CityWeather(lat: 0, lon: 0, placeId: "", mainInfo: CurrentDayModel(city: "", country: "", minTemp: 0, maxtemp: 0, minTempF: 0, maxTempF: 0, currentTemp: 0, currentTempF: 0, description: "", timeZone: .current), cityData: [])
+    private var dataSource: CityWeather = CityWeather(lat: 0, lon: 0, placeId: "", mainInfo: CurrentDayModel(city: "", country: "", minTemp: 0, maxtemp: 0, minTempF: 0, maxTempF: 0, currentTemp: 0, currentTempF: 0, description: "", timeZone: .current, feelsLike: 0, feelsLikeF: 0), cityData: [])
     
     private var tempC = true
     
@@ -153,7 +153,11 @@ extension CityCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
         case .otherInfo(info: let info):
             
             let cell = weatherDataTableView.dequeueReusableCell(withIdentifier: OtherInfoTableViewCell.description(), for: indexPath) as! OtherInfoTableViewCell
-            cell.setupCell(model: info.compactMap({OtherInfoModelCell(title: $0.title, data: $0.data)}))
+            var modelOtherInfoCell = info.compactMap({OtherInfoModelCell(title: $0.title, data: $0.data)})
+            
+            modelOtherInfoCell.insert(OtherInfoModelCell(title: "ОЩУЩАЕТСЯ КАК", data:  tempC ? "\(dataSource.mainInfo.feelsLike)°" : "\(dataSource.mainInfo.feelsLikeF)°"), at: 3)
+            
+            cell.setupCell(model: modelOtherInfoCell)
             cell.selectionStyle = .none
             return cell
        
