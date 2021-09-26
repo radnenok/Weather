@@ -11,6 +11,7 @@
 		67559E4C26FD45BF00376298 /* CityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67559E4A26FD45BF00376298 /* CityCollectionViewCell.xib */; };
 		67559E5326FD484200376298 /* LastVerticalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67559E5126FD484200376298 /* LastVerticalTableViewCell.swift */; };
 		67559E5426FD484200376298 /* LastVerticalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67559E5226FD484200376298 /* LastVerticalTableViewCell.xib */; };
+		67559E562701074600376298 /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67559E552701074600376298 /* UILabel+Extensions.swift */; };
 		678ABDF826EFEAEC0080DA7B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678ABDF726EFEAEC0080DA7B /* CoreLocation.framework */; };
 		678ABDFA26F115930080DA7B /* SearchPlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 678ABDF926F115930080DA7B /* SearchPlaceViewController.xib */; };
 		679856BD26A9F4010087AA30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679856BC26A9F4010087AA30 /* AppDelegate.swift */; };
@@ -64,6 +65,7 @@
 		67559E4A26FD45BF00376298 /* CityCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityCollectionViewCell.xib; sourceTree = "<group>"; };
 		67559E5126FD484200376298 /* LastVerticalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastVerticalTableViewCell.swift; sourceTree = "<group>"; };
 		67559E5226FD484200376298 /* LastVerticalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastVerticalTableViewCell.xib; sourceTree = "<group>"; };
+		67559E552701074600376298 /* UILabel+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		678ABDF726EFEAEC0080DA7B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		678ABDF926F115930080DA7B /* SearchPlaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchPlaceViewController.xib; path = WeatherMainProject/ViewControllers/SearchPlaceViewController/SearchPlaceViewController.xib; sourceTree = SOURCE_ROOT; };
 		679856B926A9F4010087AA30 /* WeatherMainProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherMainProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,6 +272,7 @@
 				679856DF26B0359A0087AA30 /* RegisterTableViewCell.swift */,
 				679856E126B036040087AA30 /* DateFormat.swift */,
 				6798570726B082BC0087AA30 /* String.swift */,
+				67559E552701074600376298 /* UILabel+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				679856F426B038E10087AA30 /* City.swift in Sources */,
 				679856F226B038E10087AA30 /* Main.swift in Sources */,
 				679856F526B038E10087AA30 /* List.swift in Sources */,
+				67559E562701074600376298 /* UILabel+Extensions.swift in Sources */,
 				679856E026B0359A0087AA30 /* RegisterTableViewCell.swift in Sources */,
 				679856F026B038E10087AA30 /* Temp.swift in Sources */,
 				679856E226B036040087AA30 /* DateFormat.swift in Sources */,

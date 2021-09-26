@@ -11,6 +11,7 @@ import UIKit
 class LastTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var constraintLabelDescription: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +29,10 @@ class LastTableViewCell: UITableViewCell {
     }
     
     func setupCell(name: String) {
+            
         nameLabel.attributedText = getStringUnderLined(text1: "Погода - \(name). ", text2: "Открыть в Картах")
+       
+        constraintLabelDescription.constant = CGFloat(nameLabel.calculateMaxLines()*21)
     }
     
 }

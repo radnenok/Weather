@@ -266,14 +266,14 @@ extension DataViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.delegate = self
         cell.setupCityCVCell(model: dataSourceAllCities[indexPath.item], forAddCity: forAddCity, tempC: tempC, showAddButton: showAddButton)
         
-        print("cellForItemAt \(indexPath.item)")
+    //    print("cellForItemAt \(indexPath.item)")
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        print("collectionViewLayout \(indexPath.item)")
+    //    print("collectionViewLayout \(indexPath.item)")
         
         return CGSize(width: collectionView.bounds.width, height: collectionView.bounds.height)
         
