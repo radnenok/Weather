@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -19,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2OQ-xf-L7c">
-                        <rect key="frame" x="362" y="12.5" width="30" height="24.5"/>
+                        <rect key="frame" x="362" y="12.5" width="30" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="1Sf-Wu-NKC"/>
                             <constraint firstAttribute="width" constant="30" id="sP1-lx-oZX"/>
@@ -71,13 +72,28 @@
                             <action selector="tempFPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="eNP-bO-L8B"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dT-0f-9cQ">
+                        <rect key="frame" x="188.5" y="10" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="a0k-Cx-l9k"/>
+                            <constraint firstAttribute="height" constant="30" id="kow-7g-ujX"/>
+                        </constraints>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" image="TheWeatherChannel4"/>
+                        <connections>
+                            <action selector="openWeatherButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3eQ-Lc-aJZ"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="X5e-W2-liU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="4Pk-vu-t12"/>
                     <constraint firstItem="jaZ-HX-p7E" firstAttribute="leading" secondItem="dwS-O1-mf6" secondAttribute="trailing" id="BM6-m5-eGB"/>
+                    <constraint firstItem="7dT-0f-9cQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Lo1-BE-0ly"/>
                     <constraint firstAttribute="bottom" secondItem="X5e-W2-liU" secondAttribute="bottom" constant="10" id="T9I-wC-18B"/>
                     <constraint firstItem="dwS-O1-mf6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="VOa-Zo-uQ5"/>
+                    <constraint firstItem="7dT-0f-9cQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="amw-PA-tNt"/>
                     <constraint firstAttribute="bottom" secondItem="dwS-O1-mf6" secondAttribute="bottom" constant="10" id="cks-QB-OUU"/>
                     <constraint firstItem="2OQ-xf-L7c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="erC-PA-IdT"/>
                     <constraint firstAttribute="bottom" secondItem="jaZ-HX-p7E" secondAttribute="bottom" constant="10" id="mA7-Bq-auv"/>
@@ -98,6 +114,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="TheWeatherChannel4" width="175.5" height="175.5"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

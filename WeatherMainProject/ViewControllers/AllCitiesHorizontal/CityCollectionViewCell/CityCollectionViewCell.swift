@@ -70,7 +70,7 @@ final class CityCollectionViewCell: UICollectionViewCell {
         
         weatherDataTableView.contentInset = UIEdgeInsets(top: insetHeight, left: 0, bottom: 0, right: 0)
           
-        let frameFooter = CGRect(x: 0, y: 0, width: weatherDataTableView.frame.width, height: 1)
+        let frameFooter = CGRect(x: 0, y: 0, width: weatherDataTableView.frame.width, height: 5)
         let footerView = UIView(frame: frameFooter)
         footerView.backgroundColor = .clear
         weatherDataTableView.tableFooterView = footerView

@@ -54,6 +54,8 @@ class DataViewController: UIViewController  {
      
         } else {
             
+     //       addWeatherForCityWithLL(forLatitude: 53.878535418821386, longitude: 27.486288417156306, oneCity: false)
+            
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
@@ -352,13 +354,15 @@ extension DataViewController: CLLocationManagerDelegate {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-    //    print("latitude: \(latitude), longitude: \(longitude)")
+     //   print("latitude: \(latitude), longitude: \(longitude)")
        
         if currentCoordinate["lat"] != latitude || currentCoordinate["lon"] != longitude {
             addWeatherForCityWithLL(forLatitude: latitude, longitude: longitude, oneCity: false)
             currentCoordinate["lat"] = latitude
             currentCoordinate["lon"] = longitude
         }
+        
+        
         
     }
     

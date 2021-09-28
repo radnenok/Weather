@@ -47,6 +47,14 @@ final class LastVerticalTableViewCell: UITableViewCell {
         self.delegate?.changeTempC(tempC: true)
     }
     
+    @IBAction func openWeatherButton(_ sender: UIButton) {
+        
+
+           let string1 =  "https://weather.com/ru-BY/weather/today/l/BOXX0005:1:BO?Goto=Redirected"
+        
+            UIApplication.shared.open(NSURL(string: string1)! as URL)
+ 
+    }
     
     @IBAction func tempFPressed(_ sender: UIButton) {
         tempC = false
