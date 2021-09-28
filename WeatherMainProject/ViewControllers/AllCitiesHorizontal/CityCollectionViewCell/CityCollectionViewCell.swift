@@ -176,7 +176,6 @@ extension CityCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
             return 34*9
         case .otherInfo:
             return 348// 6  cells * 58
-
         case .maps:
             return 51
         }
@@ -188,7 +187,6 @@ extension CityCollectionViewCell: UITableViewDataSource, UITableViewDelegate {
             return 34*9
         case .otherInfo:
             return 348// 6  cells * 58
-    
         case .maps:
             return UITableView.automaticDimension
         }
