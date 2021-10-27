@@ -16,7 +16,8 @@ protocol DataViewControllerDelegate: AnyObject {
 class DataViewController: UIViewController  {
     
     @IBOutlet private weak var weatherCollectionView: UICollectionView!
-    @IBOutlet private weak var weatherPageControl: UIPageControl!
+    @IBOutlet private weak var weatherPageControl: UIPageControl! 
+    
     @IBOutlet private weak var addCityButton: UIButton!
     @IBOutlet private weak var openWeatherButton: UIButton!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!

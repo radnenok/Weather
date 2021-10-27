@@ -33,6 +33,11 @@ final class CitiesVerticalViewController: UIViewController {
         
         citiesTableView.tableFooterView = UIView()
   
+        print(#function)
+    }
+    
+    override class func awakeFromNib() {
+        print(#function)
     }
     
     init(model: [CityWeather], tempC: Bool) {
@@ -102,6 +107,7 @@ extension CitiesVerticalViewController: UITableViewDelegate, UITableViewDataSour
 
 // MARK: - LastVerticalTableViewCellDelegate
 extension CitiesVerticalViewController: LastVerticalTableViewCellDelegate {
+    
     func openWeatherChannel() {
         //        let stringUrl =  tempC ? "https://weather.com/ru-BY/weather/today/l/c855859306f030f8d49f5384679a817861c690451a73f3d35ca55ec197aa452a" : "https://weather.com/ru-BY/weather/today/l/c855859306f030f8d49f5384679a817861c690451a73f3d35ca55ec197aa452a"
                 let stringUrl = "https://weather.com/ru-BY/weather/today/l/c855859306f030f8d49f5384679a817861c690451a73f3d35ca55ec197aa452a"
