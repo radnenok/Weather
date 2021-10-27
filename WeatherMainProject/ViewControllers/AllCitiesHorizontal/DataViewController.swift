@@ -38,9 +38,8 @@ class DataViewController: UIViewController  {
     
     var locationManager: CLLocationManager = CLLocationManager()
    
-    var currentCoordinate: [String: Double] = ["lat": 0, "lon": 0]
+ //   var currenLocationWeatherGotten = false
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,8 +85,8 @@ class DataViewController: UIViewController  {
     override func viewWillAppear(_ animated: Bool) {
         weatherPageControl.setIndicatorImage(UIImage.init(systemName: "location.fill"), forPage: 0)
     }
-
-  
+   
+    
     @IBAction private func addCityBtn(_ sender: UIButton) {
    
         let controller = CitiesVerticalViewController(model: dataSourceAllCities, tempC: tempC)
@@ -154,6 +153,7 @@ class DataViewController: UIViewController  {
             self.responseInfoAllDays = response
             
             self.fillDataSource()
+        //    self.currenLocationWeatherGotten = true
             DispatchQueue.main.async {
                 self.weatherCollectionView.reloadData()
             }
@@ -350,20 +350,15 @@ extension DataViewController: CLLocationManagerDelegate {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-     //   print("latitude: \(latitude), longitude: \(longitude)")
-       
-        if currentCoordinate["lat"] != latitude || currentCoordinate["lon"] != longitude {
+      //  if !currenLocationWeatherGotten {
             addWeatherForCityWithLL(forLatitude: latitude, longitude: longitude, oneCity: false)
-            currentCoordinate["lat"] = latitude
-            currentCoordinate["lon"] = longitude
-        }
         
-        
-        
+      //  }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
+     
     }
     
 }

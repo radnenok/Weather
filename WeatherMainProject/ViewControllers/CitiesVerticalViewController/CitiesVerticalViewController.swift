@@ -33,7 +33,6 @@ final class CitiesVerticalViewController: UIViewController {
         
         citiesTableView.tableFooterView = UIView()
   
-        print(#function)
     }
     
     override class func awakeFromNib() {
