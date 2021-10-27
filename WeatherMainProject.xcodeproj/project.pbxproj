@@ -158,8 +158,8 @@
 		67559E3026FD381E00376298 /* OtherInfoCell */ = {
 			isa = PBXGroup;
 			children = (
-				67B8E69726EE196400B6F43F /* OtherInfoCell.xib */,
 				67B8E69826EE196400B6F43F /* OtherInfoCell.swift */,
+				67B8E69726EE196400B6F43F /* OtherInfoCell.xib */,
 			);
 			path = OtherInfoCell;
 			sourceTree = "<group>";

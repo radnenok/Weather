@@ -55,8 +55,6 @@ class DataViewController: UIViewController  {
      
         } else {
             
-     //       addWeatherForCityWithLL(forLatitude: 53.878535418821386, longitude: 27.486288417156306, oneCity: false)
-            
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.requestWhenInUseAuthorization()
@@ -217,9 +215,6 @@ class DataViewController: UIViewController  {
             dataOtherInfo.append(OtherInfoModel(title: "ВЛАЖНОСТЬ", data: "\(humidity)%"))
         }
         
-//        if let feels_like = day.feels_like?.day {
-//            dataOtherInfo.append(OtherInfoModel(title: "ОЩУЩАЕТСЯ КАК", data: "\(Int(round(feels_like)))°"))
-//        }
         
         if let pressure = day.pressure {
             dataOtherInfo.append(OtherInfoModel(title: "ДАВЛЕНИЕ", data: "\(Double(pressure)*0.75) мм рт.ст."))

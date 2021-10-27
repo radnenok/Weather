@@ -101,11 +101,8 @@ final class CityCollectionViewCell: UICollectionViewCell {
         self.cityLabelTop.constant = 50
         
         weatherDataTableView.reloadData()
-   //     print("\(weatherDataTableView.contentOffset.y)")
   
         weatherDataTableView.contentOffset.y = -174
-   //     print("\(weatherDataTableView.contentOffset.y)")
-        
         
     }
     

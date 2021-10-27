@@ -20,7 +20,6 @@ final class OtherDayInfoTableViewCell: UITableViewCell {
         return "OtherDayInfoTableViewCell"
     }
     
-    
     func setupCellOtherDays(model: OtherDayModelCell) {
         dateLabel.text = model.date
         

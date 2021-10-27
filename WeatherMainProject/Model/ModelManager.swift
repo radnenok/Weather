@@ -14,7 +14,6 @@ protocol OtherDayData {
     var icon: String { get }
 }
 
-
 struct OtherInfoModel {
     let title: String
     let data: String
@@ -29,6 +28,7 @@ struct OtherDayModel: OtherDayData {
     var icon: String
     var pop: String
 }
+
 
 struct CurrentDayModel {
     let city: String
