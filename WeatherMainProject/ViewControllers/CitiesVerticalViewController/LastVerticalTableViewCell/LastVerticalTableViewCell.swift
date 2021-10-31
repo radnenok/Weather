@@ -10,6 +10,7 @@ import UIKit
 protocol LastVerticalTableViewCellDelegate: AnyObject {
     func addCity()
     func changeTempC(tempC: Bool)
+    func openWeatherChannel()
 }
 
 final class LastVerticalTableViewCell: UITableViewCell {
@@ -49,10 +50,7 @@ final class LastVerticalTableViewCell: UITableViewCell {
     
     @IBAction func openWeatherButton(_ sender: UIButton) {
         
-
-           let string1 =  "https://weather.com/ru-BY/weather/today/l/BOXX0005:1:BO?Goto=Redirected"
-        
-            UIApplication.shared.open(NSURL(string: string1)! as URL)
+        self.delegate?.openWeatherChannel()
  
     }
     

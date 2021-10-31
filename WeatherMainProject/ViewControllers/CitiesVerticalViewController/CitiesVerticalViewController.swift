@@ -108,9 +108,11 @@ extension CitiesVerticalViewController: UITableViewDelegate, UITableViewDataSour
 extension CitiesVerticalViewController: LastVerticalTableViewCellDelegate {
     
     func openWeatherChannel() {
-        //        let stringUrl =  tempC ? "https://weather.com/ru-BY/weather/today/l/c855859306f030f8d49f5384679a817861c690451a73f3d35ca55ec197aa452a" : "https://weather.com/ru-BY/weather/today/l/c855859306f030f8d49f5384679a817861c690451a73f3d35ca55ec197aa452a"
-                let stringUrl = "https://weather.com/ru-BY/weather/today/l/c855859306f030f8d49f5384679a817861c690451a73f3d35ca55ec197aa452a"
-                 UIApplication.shared.open(NSURL(string: stringUrl)! as URL)
+        let stringUrl = "https://weather.com/ru-BY/weather/today/l/BOXX0005:1:BO?Goto=Redirected"
+        let url = NSURL(string: stringUrl)! as URL
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
     }
     
     func changeTempC(tempC: Bool) {

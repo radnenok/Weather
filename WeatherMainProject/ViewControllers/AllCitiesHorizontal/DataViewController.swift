@@ -38,10 +38,11 @@ class DataViewController: UIViewController  {
     
     var locationManager: CLLocationManager = CLLocationManager()
    
- //   var currenLocationWeatherGotten = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+  //      tempC = UserDefaults.standard.bool(forKey: "TempC")
         
         weatherCollectionView.dataSource = self
         weatherCollectionView.delegate = self
@@ -85,6 +86,7 @@ class DataViewController: UIViewController  {
     override func viewWillAppear(_ animated: Bool) {
         weatherPageControl.setIndicatorImage(UIImage.init(systemName: "location.fill"), forPage: 0)
     }
+    
    
     
     @IBAction private func addCityBtn(_ sender: UIButton) {
@@ -98,9 +100,13 @@ class DataViewController: UIViewController  {
     
     
     @IBAction func openWeatherBtn(_ sender: UIButton) {
-
-       let string1 =  "https://weather.com/ru-BY/weather/today/l/BOXX0005:1:BO?Goto=Redirected"
-        UIApplication.shared.open(NSURL(string: string1)! as URL)
+        
+       let stringUrl = "https://weather.com/ru-BY/weather/today/l/BOXX0005:1:BO?Goto=Redirected"
+        let url = NSURL(string: stringUrl)! as URL
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+        
     }
     
     @objc private func pageControlDidChanged(_ sender: UIPageControl) {
@@ -153,7 +159,6 @@ class DataViewController: UIViewController  {
             self.responseInfoAllDays = response
             
             self.fillDataSource()
-        //    self.currenLocationWeatherGotten = true
             DispatchQueue.main.async {
                 self.weatherCollectionView.reloadData()
             }
@@ -350,10 +355,9 @@ extension DataViewController: CLLocationManagerDelegate {
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-      //  if !currenLocationWeatherGotten {
-            addWeatherForCityWithLL(forLatitude: latitude, longitude: longitude, oneCity: false)
+        addWeatherForCityWithLL(forLatitude: latitude, longitude: longitude, oneCity: false)
         
-      //  }
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
